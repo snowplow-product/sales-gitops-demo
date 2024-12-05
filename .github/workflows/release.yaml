@@ -17,7 +17,7 @@ jobs:
       SNOWPLOW_CONSOLE_ORG_ID: 782acb70-b482-4906-b223-159f51068f22
       SNOWPLOW_CONSOLE_API_KEY_ID: ${{ secrets.SNOWPLOW_CONSOLE_API_KEY_ID }}
       SNOWPLOW_CONSOLE_API_KEY: ${{ secrets.SNOWPLOW_CONSOLE_API_KEY_SECRET }}
-      SNOWPLOW_MANAGED_FROM: ${{ github.server_url }}/${{ github.repository }}
+      SNOWPLOW_CONSOLE_MANAGED_FROM: ${{ github.server_url }}/${{ github.repository }}
 
     steps:
       - uses: actions/checkout@v4
