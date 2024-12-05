@@ -14,12 +14,12 @@ data:
     vendor: com.snplow.sales.gcp.git
     name: login
     format: jsonschema
-    version: 1-0-0
+    version: 1-0-1
   type: object
   properties:
     id:
       description: Identifier for a user
-      maxLength: 254
+      maxLength: 256
       minLength: 36
       type: string
   required:
