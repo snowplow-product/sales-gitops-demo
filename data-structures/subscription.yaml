@@ -14,7 +14,7 @@ data:
     vendor: com.snplow.sales.gcp.git
     name: subscription
     format: jsonschema
-    version: 1-0-1
+    version: 1-0-0
   type: object
   properties:
     plan_id:
