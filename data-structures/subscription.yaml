@@ -1,0 +1,33 @@
+# You might not need a custom data structure.
+# Please have a look at the available list of out of the box events and entities:
+# https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/
+apiVersion: v1
+resourceType: data-structure
+meta:
+  hidden: false
+  schemaType: entity
+  customData: {}
+data:
+  $schema: http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#
+  description: Event to represent a logged in user
+  self:
+    vendor: com.snplow.sales.gcp.git
+    name: login
+    format: jsonschema
+    version: 1-0-1
+  type: object
+  properties:
+    plan_id:
+      description: Identifier for the users plan
+      maxLength: 256
+      minLength: 36
+      type: string
+    active_status:
+      description: Customer active status
+      maxLength: 256
+      minLength: 36
+      type: string
+  required:
+    - id
+    - active_status
+  additionalProperties: false
