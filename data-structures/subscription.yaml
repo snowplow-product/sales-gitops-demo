@@ -12,9 +12,9 @@ data:
   description: Event to represent a logged in user
   self:
     vendor: com.snplow.sales.gcp.git
-    name: login
+    name: subscription
     format: jsonschema
-    version: 1-0-1
+    version: 1-0-0
   type: object
   properties:
     plan_id:
@@ -31,6 +31,6 @@ data:
       description: loyalty of customer
       type: string
   required:
-    - id
+    - plan_id
     - active_status
   additionalProperties: false
