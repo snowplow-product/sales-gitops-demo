@@ -28,6 +28,6 @@ data:
       minLength: 36
       type: string
   required:
-    - id
+    - plan_id
     - active_status
   additionalProperties: false
