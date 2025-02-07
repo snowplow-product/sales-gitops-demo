@@ -29,7 +29,9 @@ data:
       type: string
     loyalty:
       description: loyalty of customer
-      type: string
+      type:
+        - string
+        - null
   required:
     - plan_id
     - active_status
