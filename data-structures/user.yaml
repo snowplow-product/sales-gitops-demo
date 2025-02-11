@@ -12,13 +12,18 @@ data:
   description: Event to represent a logged in user
   self:
     vendor: com.snplow.sales.gcp.git
-    name: login
+    name: gitops_login
     format: jsonschema
-    version: 1-0-1
+    version: 1-0-0
   type: object
   properties:
     id:
       description: Identifier for a user
+      maxLength: 256
+      minLength: 36
+      type: string
+    optional_parameter_1:
+      description: First optional parameter in this schema
       maxLength: 256
       minLength: 36
       type: string
