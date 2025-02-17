@@ -22,6 +22,9 @@ data:
       maxLength: 256
       minLength: 36
       type: string
+    name:
+      description: User name
+      type: string
   required:
       - id
   additionalProperties: false
