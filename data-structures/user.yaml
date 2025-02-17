@@ -14,7 +14,7 @@ data:
     vendor: com.snplow.sales.gcp.git
     name: login
     format: jsonschema
-    version: 1-0-1
+    version: 1-0-2
   type: object
   properties:
     id:
@@ -24,6 +24,8 @@ data:
       type: string
     name:
       description: User name
+      maxLength: 256
+      minLength: 36
       type: string
   required:
       - id
