@@ -1,0 +1,24 @@
+{
+    "description": "When a customer has downloaded an artefact",
+    "properties": {
+      "artefact_id": {
+        "description": "ID of an artefact",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "artefact_name": {
+        "description": "Name of an artefact",
+        "maxLength": 100,
+        "type": "string",
+        "x-sensitive": false
+      }
+    },
+    "type": "object",
+    "self": {
+      "vendor": "com.jonsu",
+      "name": "download_artefact",
+      "format": "jsonschema",
+      "version": "1-0-0"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
