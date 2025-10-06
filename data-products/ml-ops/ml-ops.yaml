@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/snowplow/snowplow-cli/refs/heads/main/internal/validation/schema/data-product.json
+
+apiVersion: v1
+resourceType: data-product
+resourceName: 4af2e7ab-5adf-4399-b365-d7c00a2fa312
+data:
+    name: ML Ops
+    owner: james.borlase@snowplowanalytics.com
+    description: Data product for ML Ops operations tracking including product interactions and subscription management
+    sourceApplications:
+        - $ref: ./source-apps/ml-ops-app.yaml
+    eventSpecifications:
+        - resourceName: ac48a622-8bff-4acd-ad69-101c791ed444
+          name: Product View
+          description: Track when a user views a product in the ML Ops application
+          event:
+              source: iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0
+          entities:
+              tracked:
+                  - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+                  - source: iglu:com.snplow.sales.gcp.git/product/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+              enriched: []
+          triggers:
+              - id: beeaab78-4e1c-4b55-ad0a-fb7af26fa1e3
+                description: Fires when user navigates to a product detail page
+                appIds:
+                    - ml_ops_app
+                    - ml_ops_app_mobile
+        - resourceName: bad590eb-dae2-4567-ad99-8b09d9c8ec02
+          name: Subscription Update
+          description: Track when a user updates their subscription plan
+          event:
+              source: iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0
+          entities:
+              tracked:
+                  - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+                  - source: iglu:com.snplow.sales.gcp.git/subscription/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+              enriched: []
+          triggers:
+              - id: 0fad69e6-5ca4-4c00-bce8-33c6b8413370
+                description: Fires when user successfully changes subscription plan or status
+                appIds:
+                    - ml_ops_app
+                    - ml_ops_app_mobile
+        - resourceName: 96a61ed1-6662-43f0-bc59-55f6aa7f3193
+          name: Page View
+          description: Track page views across the ML Ops application
+          event:
+              source: iglu:com.snowplowanalytics.snowplow/page_view/jsonschema/1-0-0
+          entities:
+              tracked:
+                  - source: iglu:com.example.ml_ops/user/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+              enriched: []
+            

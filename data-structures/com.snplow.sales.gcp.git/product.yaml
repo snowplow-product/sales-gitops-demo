@@ -1,0 +1,47 @@
+# You might not need a custom data structure.
+# Please have a look at the available list of out of the box events and entities:
+# https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/
+apiVersion: v1
+resourceType: data-structure
+meta:
+  hidden: false
+  schemaType: entity
+  customData: {}
+data:
+  $schema: http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#
+  description: Event to represent a product
+  self:
+    vendor: com.snplow.sales.gcp.git
+    name: product
+    format: jsonschema
+    version: 1-0-0
+  type: object
+  properties:
+    id:
+      description: Identifier for a product
+      maxLength: 256
+      minLength: 36
+      type: string
+    name:
+      description: Name of the product
+      maxLength: 256
+      minLength: 1
+      type: ["string", "null"]
+    category:
+      description: Category of the product
+      maxLength: 256
+      minLength: 1
+      type: ["string", "null"]
+    price:
+      description: Price of the product
+      type: ["number", "null"]
+      minimum: 0
+      maximum: 999999.99
+    currency:
+      description: Currency of the product
+      maxLength: 3
+      minLength: 3
+      type: ["string", "null"]
+  required:
+      - id
+  additionalProperties: false

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/snowplow/snowplow-cli/refs/heads/main/internal/validation/schema/source-application.json
+
+apiVersion: v1
+resourceType: source-application
+resourceName: ee1f79ab-5c25-47d1-acce-6d4db69ab221
+data:
+    name: ML Ops App
+    description: A machine learning operations application
+    owner: james.borlase@snowplowanalytics.com 
+    appIds:
+        - ml_ops_app
+        - ml_ops_app_mobile
+    entities:
+        tracked: []
+        enriched: []

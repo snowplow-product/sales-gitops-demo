@@ -1,0 +1,28 @@
+# You might not need a custom data structure.
+# Please have a look at the available list of out of the box events and entities:
+# https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol
+# yaml-language-server: $schema=https://raw.githubusercontent.com/snowplow/snowplow-cli/refs/heads/main/internal/validation/schema/data-structure.json
+
+apiVersion: v1
+resourceType: data-structure
+meta:
+  hidden: false
+  schemaType: entity
+  customData: {}
+data:
+  $schema: http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#
+  description: "A user entity"
+  self:
+    vendor: com.example.dev_ops
+    name: user
+    format: jsonschema
+    version: 1-0-0
+  type: object
+  properties: 
+    user_id:
+      type: string
+      description: "A unique identifier for the user"
+      maxLength: 255
+  required:
+    - user_id
+  additionalProperties: false

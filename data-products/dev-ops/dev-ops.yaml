@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/snowplow/snowplow-cli/refs/heads/main/internal/validation/schema/data-product.json
+
+apiVersion: v1
+resourceType: data-product
+resourceName: 7dd23898-056f-4dfa-beaa-b01925ba0b5b
+data:
+    name: Dev Ops
+    owner: james.borlase@snowplowanalytics.com
+    description: Data product for Dev Ops operations tracking including user login events and form interactions
+    sourceApplications:
+        - $ref: ./source-apps/dev-ops-app.yaml
+    eventSpecifications:
+        - resourceName: bb46ffe2-c165-4fa1-bf7b-b9b8c820be5a
+          name: User Login
+          description: Track when a user successfully logs into the Dev Ops application
+          event:
+              source: iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0
+          entities:
+              tracked:
+                  - source: iglu:com.example.dev_ops/user/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+                  - source: iglu:com.snplow.sales.gcp.git/login/jsonschema/1-0-1
+                    minCardinality: 1
+                    maxCardinality: 1
+              enriched: []
+          triggers:
+              - id: 9cd0195e-e5da-4878-89d5-e851a07c4129
+                description: Fires when user completes login form successfully on any Dev Ops application page
+                appIds:
+                    - dev_ops_app
+                    - dev_ops_app_mobile
+        - resourceName: 283b1df3-cb77-496f-834b-2d20de922012
+          name: Page View
+          description: Track page views across the Dev Ops application
+          event:
+              source: iglu:com.snowplowanalytics.snowplow/page_view/jsonschema/1-0-0
+          entities:
+              tracked:
+                  - source: iglu:com.example.dev_ops/user/jsonschema/1-0-0
+                    minCardinality: 1
+                    maxCardinality: 1
+              enriched: []
+          triggers:
+              - id: 83eb8df0-02b1-46e0-8899-2ac2212a57a9
+                description: Automatically fires on every page load in the Dev Ops application
+                appIds:
+                    - dev_ops_app
+                    - dev_ops_app_mobile
